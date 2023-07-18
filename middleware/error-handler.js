@@ -28,8 +28,8 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.statusCode = 404;
   }
   //可以用這行看mongo response
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ err });
-  // return res.status(customError.statusCode).json({ msg: customError.msg });
+  //return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ err });
+  return res.status(customError.statusCode).json({ msg: customError.msg });
 };
 
 module.exports = errorHandlerMiddleware;
